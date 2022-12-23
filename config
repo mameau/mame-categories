@@ -1,0 +1,4 @@
+MAMEPATH=$HOME/games/emulator-mame
+MAMEFILTER=filters/status-good
+MAMEFOLDER=$(pwd)/inifile
+MAMECACHE=$(pwd)/cache

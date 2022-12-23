@@ -1,0 +1,4 @@
+# status good only
+XPATH='//mame/machine/driver[@status = "good"]/parent::machine/@name'
+INITITLE="Status - Good"
+INIFILE=status-good.ini

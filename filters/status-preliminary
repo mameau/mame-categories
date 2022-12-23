@@ -1,0 +1,3 @@
+XPATH='//mame/machine/driver[@status = "preliminary"]/parent::machine/@name'
+INITITLE="Status - Preliminary"
+INIFILE=status-preliminary.ini

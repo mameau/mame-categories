@@ -1,0 +1,4 @@
+# description does not contain MPU4 (case-sensitive)
+XPATH='//mame/machine/description[not(contains(.,"MPU4"))]/parent::machine/@name'
+INITITLE="Description - Not MPU4"
+INIFILE=description-not-mpu4.ini

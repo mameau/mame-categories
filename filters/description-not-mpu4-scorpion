@@ -1,0 +1,4 @@
+# description does not contain multiple (case-sensitive)
+XPATH='//mame/machine/description[not(contains(.,"MPU4")) and not(contains(.,"Scorpion"))]/parent::machine/@name'
+INITITLE="Description - Not (MPU4|Scorpion)"
+INIFILE=description-not-mpu4-scorpion.ini

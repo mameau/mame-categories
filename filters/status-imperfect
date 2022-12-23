@@ -1,0 +1,3 @@
+XPATH='//mame/machine/driver[@status = "imperfect"]/parent::machine/@name'
+INITITLE="Status - Imperfect"
+INIFILE=status-imperfect.ini

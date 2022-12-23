@@ -1,0 +1,76 @@
+#!/bin/bash
+
+set -u
+
+IFS=";"
+
+source config
+MAMEFILTER=${1:-$MAMEFILTER}
+
+[ ! -f "${MAMEFILTER}" ] && echo "ERROR: ${MAMEFILTER} not found, exiting" && exit 1
+
+# we depend on xmllint
+function install_deps {
+
+  [ ! -f "${MAMEPATH}/mame" ] && echo "ERROR: MAME was not found in $MAMEPATH" && exit 1
+
+  source /etc/os-release
+
+  case $ID in
+    debian|ubuntu)
+      PACKAGE=libxml2-utils 
+      dpkg -l 2>/dev/null | grep $PACKAGE &>/dev/null
+      [ $? -ne 0 ] && apt-get install -y $PACKAGE &>/dev/null
+      ;;
+    manjaro|arch)
+      PACKAGE=libxml2
+      pacman -Q $PACKAGE &>/dev/null
+      [ $? -ne 0 ] && pacman -Ssy $PACKAGE &> /dev/null
+  esac
+
+}
+
+# get the version from MAME
+function version {
+   export MAMEVER=$(${MAMEPATH}/mame -version | awk '{print $1}')
+   echo "Generating data for MAME ${MAMEVER}"
+}
+
+# run the filter
+function run {
+  local XPATH="${1}"
+  local INIFILE="${2}"
+  local INITITLE="${3}"
+  [ -z "${MAMEVER}" ] && version
+  [ ! -d "${MAMEFOLDER}/mame_${MAMEVER}" ] && mkdir -p "${MAMEFOLDER}/mame_${MAMEVER}"
+  local OUTFILE="${MAMEFOLDER}/mame_${MAMEVER}/${INIFILE}"
+  if [ ! -f $OUTFILE ]
+  then
+    echo -n "Processing: $INITITLE "
+    echo -e "[FOLDER_SETTINGS]\nRootFolderIcon mame\nSubFolderIcon folder\n\n[${INITITLE}]" > "${MAMEFOLDER}/mame_${MAMEVER}/${INIFILE}"
+    cat "${MAMECACHE}/mame_${MAMEVER}.xml" | xmllint --xpath $XPATH - 2>/dev/null | awk -F'"' '{print $2}' >> "${MAMEFOLDER}/mame_${MAMEVER}/${INIFILE}"
+    echo "[DONE]"
+  else
+    echo "Exists: $INIFILE, [SKIPPED]"
+  fi
+}
+
+# generate a cached xml
+function cache {
+  [ -z "${MAMEVER}" ] && version
+  CACHEFILE="${MAMECACHE}/mame_${MAMEVER}.xml"
+  [ ! -f "${CACHEFILE}" ] && cd ${MAMEPATH} && ./mame -lx > "${CACHEFILE}"
+}
+
+# create required dirs
+[ ! -d "${MAMEFOLDER}" ] && mkdir -p "${MAMEFOLDER}"
+[ ! -d "${MAMECACHE}" ] && mkdir -p "${MAMECACHE}"
+
+# run the other bits
+install_deps
+version
+cache
+
+# source and run the filter
+source ${MAMEFILTER}
+run "${XPATH}" "${INIFILE}" "${INITITLE}"

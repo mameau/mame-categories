@@ -1,0 +1,9 @@
+# description contains skate (case-insensitive) (xpath 1.0 compliant)
+XPATH='//mame/machine/description[contains(
+  translate(.,
+            'ABCDEFGHIJKLMNOPQRSTUVWXYZÄÖÜÉÈÊÀÁÂÒÓÔÙÚÛÇÅÏÕÑŒ', 
+            'abcdefghijklmnopqrstuvwxyzäöüéèêàáâòóôùúûçåïõñœ'
+           ),
+            "Skate")]/parent::machine/@name'
+INITITLE="Description - skate"
+INIFILE=description-skate.ini

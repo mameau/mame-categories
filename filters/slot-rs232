@@ -1,0 +1,4 @@
+# slotoption null_modem
+XPATH='//mame/machine/slot[@name = "rs232"]/parent::machine/@name'
+INITITLE="Slot - rs232"
+INIFILE=slot-rs232.ini

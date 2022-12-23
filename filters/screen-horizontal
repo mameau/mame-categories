@@ -1,0 +1,4 @@
+# status good only
+XPATH='//mame/machine/display[@tag = "screen" and (@rotate = 0 or @rotate = 180)]/parent::machine/@name'
+INITITLE="Screen - Horizonal"
+INIFILE=screen-horizontal.ini

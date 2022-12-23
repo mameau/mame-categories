@@ -1,0 +1,4 @@
+# players one
+XPATH='//mame/machine/input[@coins > 0]/parent::machine/@name'
+INITITLE="Arcade"
+INIFILE=arcade.ini

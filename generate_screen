@@ -1,0 +1,6 @@
+#!/bin/bash
+
+for i in filters/screen*
+do 
+  ./generate $i
+done

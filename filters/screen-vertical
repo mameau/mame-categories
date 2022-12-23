@@ -1,0 +1,4 @@
+# status good only
+XPATH='//mame/machine/display[@tag = "screen" and (@rotate = 90 or @rotate = 270)]/parent::machine/@name'
+INITITLE="Screen - Vertical"
+INIFILE=screen-vertical.ini

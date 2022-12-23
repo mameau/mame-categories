@@ -1,4 +1,4 @@
-# status good only
+# device_ref m(x)comm
 XPATH='//mame/machine/device_ref[@name = "m1comm" or @name = "m2comm" or @name = "m3comm"]/parent::machine/@name'
 INITITLE="Device Ref - model 1,2,3 link mode"
-INIFILE=mxcomm.ini
+INIFILE=def_ref-mxcomm.ini

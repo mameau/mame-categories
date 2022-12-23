@@ -1,0 +1,4 @@
+# slotoption null_modem
+XPATH='//mame/machine/slot/slotoption[@name = "null_modem"]/parent::slot/parent::machine/@name'
+INITITLE="Slot Option - null_modem"
+INIFILE=slotoption-null_modem.ini

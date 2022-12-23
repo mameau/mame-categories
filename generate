@@ -4,11 +4,11 @@ set -u
 
 IFS=";"
 
+[ ! -f "config" ] && cp config.dist config
 source config
 MAMEFILTER=${1:-$MAMEFILTER}
 
 [ ! -f "${MAMEFILTER}" ] && echo "ERROR: ${MAMEFILTER} not found, exiting" && exit 1
-[ ! -f "config" ] && cp config.dist config
 
 # we depend on xmllint
 function install_deps {

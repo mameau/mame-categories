@@ -60,7 +60,7 @@ function run {
 function cache {
   [ -z "${MAMEVER}" ] && version
   CACHEFILE="${MAMECACHE}/mame_${MAMEVER}.xml"
-  [ ! -f "${CACHEFILE}" ] && cd ${MAMEPATH} && ./mame -lx > "${CACHEFILE}"
+  [ ! -f "${CACHEFILE}" ] && cd ${MAMEPATH} && ./mame -lx > "${CACHEFILE}" && cd "${OLDPWD}"
 }
 
 # create required dirs

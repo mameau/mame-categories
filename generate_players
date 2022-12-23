@@ -1,0 +1,6 @@
+#!/bin/bash
+
+for i in filters/players*
+do 
+  ./generate $i
+done

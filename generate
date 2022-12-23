@@ -34,7 +34,6 @@ function install_deps {
 # get the version from MAME
 function version {
    export MAMEVER=$(${MAMEPATH}/mame -version | awk '{print $1}')
-   echo "Generating data for MAME ${MAMEVER}"
 }
 
 # run the filter
@@ -43,16 +42,17 @@ function run {
   local INIFILE="${2}"
   local INITITLE="${3}"
   [ -z "${MAMEVER}" ] && version
-  [ ! -d "${MAMEFOLDER}/mame_${MAMEVER}" ] && mkdir -p "${MAMEFOLDER}/mame_${MAMEVER}"
-  local OUTFILE="${MAMEFOLDER}/mame_${MAMEVER}/${INIFILE}"
+  local OUTDIR="${MAMEFOLDER}/${MAMEVER}"
+  [ ! -d "${OUTDIR}" ] && mkdir -p "${OUTDIR}"
+  local OUTFILE="${OUTDIR}/${INIFILE}"
   if [ ! -f $OUTFILE ]
   then
-    echo -n "Processing: $INITITLE "
-    echo -e "[FOLDER_SETTINGS]\nRootFolderIcon mame\nSubFolderIcon folder\n\n[${INITITLE}]" > "${MAMEFOLDER}/mame_${MAMEVER}/${INIFILE}"
-    cat "${MAMECACHE}/mame_${MAMEVER}.xml" | xmllint --xpath $XPATH - 2>/dev/null | awk -F'"' '{print $2}' >> "${MAMEFOLDER}/mame_${MAMEVER}/${INIFILE}"
+    echo -n "Processing: $INITITLE (mame${MAMEVER}) "
+    echo -e "[FOLDER_SETTINGS]\nRootFolderIcon mame\nSubFolderIcon folder\n\n[${INITITLE}]" > "${OUTFILE}"
+    cat "${MAMECACHE}/mame_${MAMEVER}.xml" | xmllint --xpath $XPATH - 2>/dev/null | awk -F'"' '{print $2}' >> "${OUTFILE}"
     echo "[DONE]"
   else
-    echo "Exists: $INIFILE, [SKIPPED]"
+    echo "Exists: $INIFILE (mame${MAMEVER}) [SKIPPED]"
   fi
 }
 
@@ -60,7 +60,14 @@ function run {
 function cache {
   [ -z "${MAMEVER}" ] && version
   CACHEFILE="${MAMECACHE}/mame_${MAMEVER}.xml"
-  [ ! -f "${CACHEFILE}" ] && cd ${MAMEPATH} && ./mame -lx > "${CACHEFILE}" && cd "${OLDPWD}"
+
+  if [ ! -f "${CACHEFILE}" ] 
+  then
+    echo "Generating cache for mame${MAMEVER}"
+    cd ${MAMEPATH}
+    ./mame -lx > "${CACHEFILE}"
+    cd "${OLDPWD}"
+  fi
 }
 
 # create required dirs

@@ -1,0 +1,4 @@
+# players two
+XPATH='//mame/machine/input[@players = 2]/parent::machine/@name'
+INITITLE="Players - Two"
+INIFILE=players-two.ini

@@ -1,1 +1,1 @@
-for i in filters/status*; do ./generate mame_0.250; done
+for i in filters/status*; do ./generate $i; done

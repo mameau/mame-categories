@@ -1,0 +1,4 @@
+# device_ref voodoo_1
+XPATH='//mame/machine/device_ref[@name = "voodoo_1"]/parent::machine/@name'
+INITITLE="Device Ref - Voodoo 1"
+INIFILE=dev_ref-voodoo_1.ini

@@ -1,3 +1,4 @@
 cache/*
 inifile/*
 config
+cross_ref_bios_results*.txt

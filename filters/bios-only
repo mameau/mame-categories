@@ -1,0 +1,4 @@
+# biosonly
+XPATH='//mame/machine[@isbios = "yes"]/@name' 
+INITITLE="BIOS"
+INIFILE=bios.ini

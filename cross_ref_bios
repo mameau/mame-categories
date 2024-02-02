@@ -4,13 +4,13 @@
 # machines with parents
 MACHINES=$(mame -lx | xmllint --xpath '//mame/machine/@romof/parent::machine/@name' - | awk -F'"' '{print $2}' | sort -u)
 
-echo "machine, romof, isbios"
+echo "machine,romof,isbios"
 for MACHINE in ${MACHINES[@]}
 do
   PARENT=$(mame $MACHINE -lx | xmllint --xpath '//mame/machine/@romof' - 2>/dev/null | awk -F'"' '{print $2}')
   ISBIOS=$(mame $PARENT -lx | xmllint --xpath '//mame/machine/@isbios' - 2>/dev/null | awk -F'"' '{print $2}')
 
   if [ ! -z $ISBIOS ] && [ $ISBIOS == "yes" ]; then
-    echo "$MACHINE, $PARENT, $ISBIOS"
+    echo "$MACHINE,$PARENT,$ISBIOS"
   fi
 done

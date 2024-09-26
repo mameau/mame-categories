@@ -1,0 +1,4 @@
+# input keyboard
+XPATH='//mame/machine/input/control[@type = "keyboard"]/ancestor::machine/@name'
+INITITLE="Input - keyboard"
+INIFILE=input-keyboard.ini

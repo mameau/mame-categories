@@ -1,0 +1,4 @@
+# input positional
+XPATH='//mame/machine/input/control[@type = "positional"]/ancestor::machine/@name'
+INITITLE="Input - positional"
+INIFILE=input-positional.ini

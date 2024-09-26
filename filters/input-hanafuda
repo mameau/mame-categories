@@ -1,0 +1,4 @@
+# input hanafuda
+XPATH='//mame/machine/input/control[@type = "hanafuda"]/ancestor::machine/@name'
+INITITLE="Input - hanafuda"
+INIFILE=input-hanafuda.ini

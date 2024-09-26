@@ -1,0 +1,4 @@
+# input lightgun
+XPATH='//mame/machine/input/control[@type = "lightgun"]/ancestor::machine/@name'
+INITITLE="Input - lightgun"
+INIFILE=input-lightgun.ini

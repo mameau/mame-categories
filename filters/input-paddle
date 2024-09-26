@@ -1,0 +1,4 @@
+# input paddle
+XPATH='//mame/machine/input/control[@type = "paddle"]/ancestor::machine/@name'
+INITITLE="Input - paddle"
+INIFILE=input-paddle.ini

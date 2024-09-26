@@ -1,0 +1,4 @@
+# input trackball
+XPATH='//mame/machine/input/control[@type = "trackball"]/ancestor::machine/@name'
+INITITLE="Input - trackball"
+INIFILE=input-trackball.ini

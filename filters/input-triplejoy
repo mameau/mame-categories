@@ -1,0 +1,4 @@
+# input triplejoy
+XPATH='//mame/machine/input/control[@type = "triplejoy"]/ancestor::machine/@name'
+INITITLE="Input - triplejoy"
+INIFILE=input-triplejoy.ini

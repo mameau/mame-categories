@@ -1,0 +1,4 @@
+# input stick
+XPATH='//mame/machine/input/control[@type = "stick"]/ancestor::machine/@name'
+INITITLE="Input - stick"
+INIFILE=input-stick.ini

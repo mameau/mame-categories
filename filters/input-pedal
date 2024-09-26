@@ -1,0 +1,4 @@
+# input pedal
+XPATH='//mame/machine/input/control[@type = "pedal"]/ancestor::machine/@name'
+INITITLE="Input - pedal"
+INIFILE=input-pedal.ini

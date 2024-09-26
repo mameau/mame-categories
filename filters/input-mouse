@@ -1,0 +1,4 @@
+# input mouse
+XPATH='//mame/machine/input/control[@type = "mouse"]/ancestor::machine/@name'
+INITITLE="Input - mouse"
+INIFILE=input-mouse.ini

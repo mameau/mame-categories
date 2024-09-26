@@ -1,0 +1,4 @@
+# input mahjong
+XPATH='//mame/machine/input/control[@type = "mahjong"]/ancestor::machine/@name'
+INITITLE="Input - mahjong"
+INIFILE=input-mahjong.ini

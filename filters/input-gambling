@@ -1,0 +1,4 @@
+# input gambling
+XPATH='//mame/machine/input/control[@type = "gambling"]/ancestor::machine/@name'
+INITITLE="Input - gambling"
+INIFILE=input-gambling.ini

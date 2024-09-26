@@ -1,0 +1,4 @@
+# input keypad
+XPATH='//mame/machine/input/control[@type = "keypad"]/ancestor::machine/@name'
+INITITLE="Input - keypad"
+INIFILE=input-keypad.ini

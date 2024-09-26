@@ -1,0 +1,9 @@
+#!/bin/bash
+
+INPUTS=$(mame -lx | xmllint --xpath '///control/@type' - | sort -u | awk -F'"' '{print $2}' | paste -d' ' -s)
+
+for i in ${INPUTS[@]}
+do
+  echo -e "# input $i\nXPATH='//mame/machine/input/control[@type = \"$i\"]/ancestor::machine/@name'\nINITITLE=\"Input - $i\"\nINIFILE=input-$i.ini" > filters/input-$i
+done
+

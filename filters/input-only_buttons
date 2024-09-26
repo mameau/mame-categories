@@ -1,0 +1,4 @@
+# input only_buttons
+XPATH='//mame/machine/input/control[@type = "only_buttons"]/ancestor::machine/@name'
+INITITLE="Input - only_buttons"
+INIFILE=input-only_buttons.ini

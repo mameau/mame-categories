@@ -1,0 +1,4 @@
+# input dial
+XPATH='//mame/machine/input/control[@type = "dial"]/ancestor::machine/@name'
+INITITLE="Input - dial"
+INIFILE=input-dial.ini

@@ -15,8 +15,10 @@ XPATH='//mame/machine[not(contains(@sourcefile,"pinball"))]/input[@coins > 0 and
   not(contains(.,"(System 85")) and
   not(contains(.,"(Electrocoin")) and
   not(contains(.,"(Bellfruit")) and
-  not(contains(.,"(Quinella bet"))
+  not(contains(.,"(Quinella bet")) and
+  not(contains(.,"(Mahjong")) and
+  not(contains(.,"(Hanafu"))
   ]/parent::machine/@name'
-INITITLE="Coin Operated (Not Gambling / Pinball)"
-INIFILE=coinop-not-input-gambling.ini
+INITITLE="Coin Operated (Not Gambling/Pinball/Mahjong)"
+INIFILE=coinop-not-gambling-pinball.ini
 

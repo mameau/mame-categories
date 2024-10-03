@@ -1,0 +1,4 @@
+# players one
+XPATH='//mame/machine[contains(@sourcefile,"pinball")]/input[@coins > 0 and @players > 0]/ancestor::machine/@name'
+INITITLE="Pinball"
+INIFILE=pinball.ini

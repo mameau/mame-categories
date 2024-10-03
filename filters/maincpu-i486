@@ -1,0 +1,4 @@
+# pentium maincpu
+XPATH='//mame/machine/chip[@type = "cpu" and @tag = "maincpu" and contains(@name,"Intel I486")]/parent::machine/@name'
+INITITLE="MainCPU - Intel I486"
+INIFILE=maincpu-i486.ini

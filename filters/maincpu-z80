@@ -1,0 +1,4 @@
+# pentium maincpu
+XPATH='//mame/machine/chip[@type = "cpu" and @tag = "maincpu" and @name = "Zilog Z80"]/parent::machine/@name'
+INITITLE="MainCPU - Zilog Z80"
+INIFILE=maincpu-z80.ini

@@ -1,0 +1,22 @@
+# players one
+XPATH='//mame/machine[not(contains(@sourcefile,"pinball"))]/input[@coins > 0 and @players > 0]/control[not(@type = "gambling")]/ancestor::machine/description[
+  not(contains(.,"(MPU3")) and 
+  not(contains(.,"(MPU4")) and 
+  not(contains(.,"(Scorpion")) and
+  not(contains(.,"(Slots")) and
+  not(contains(.,"(Maygay")) and
+  not(contains(.,"(Barcrest")) and
+  not(contains(.,"(Concept")) and
+  not(contains(.,"(Global")) and
+  not(contains(.,"(Mdm")) and
+  not(contains(.,"(JPM")) and
+  not(contains(.,"(IMPACT")) and
+  not(contains(.,"(Gemini")) and
+  not(contains(.,"(System 85")) and
+  not(contains(.,"(Electrocoin")) and
+  not(contains(.,"(Bellfruit")) and
+  not(contains(.,"(Quinella bet"))
+  ]/parent::machine/@name'
+INITITLE="Coin Operated (Not Gambling / Pinball)"
+INIFILE=coinop-not-input-gambling.ini
+

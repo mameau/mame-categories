@@ -1,0 +1,4 @@
+# pentium maincpu
+XPATH='//mame/machine/chip[@type = "cpu" and @tag = "maincpu" and contains(@name,"Intel Pentium")]/parent::machine/@name'
+INITITLE="MainCPU - Intel Pentium"
+INIFILE=maincpu-pentium.ini

@@ -1,0 +1,4 @@
+# input not gambling
+XPATH='//mame/machine/input/control[not(@type = "gambling")]/ancestor::machine/@name'
+INITITLE="Input - not gambling"
+INIFILE=input-not-gambling.ini

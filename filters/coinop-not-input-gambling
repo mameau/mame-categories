@@ -1,23 +1,39 @@
-# players one
-XPATH='//mame/machine[not(contains(@sourcefile,"pinball"))]/input[@coins > 0 and @players > 0]/control[not(@type = "gambling")]/ancestor::machine/description[
-  not(contains(.,"(MPU3")) and 
-  not(contains(.,"(MPU4")) and 
+# coinop not gambling/pinball/mahjong
+XPATH='//mame/machine[
+  not(contains(@sourcefile,"pinball"))
+  ]/input[
+  @coins > 0 and @players > 0
+  ]/control[
+  not(@type = "gambling")
+  ]/ancestor::machine/description[
+  not(contains(.,"(Barcrest")) and
+  not(contains(.,"(Bellfruit")) and
+  not(contains(.,"(Concept")) and
+  not(contains(.,"(Electrocoin")) and
+  not(contains(.,"(Gemini")) and
+  not(contains(.,"(Global")) and
+  not(contains(.,"(IMPACT")) and
+  not(contains(.,"(JPM")) and
+  not(contains(.,"(Maygay")) and
+  not(contains(.,"(Mdm")) and
+  not(contains(.,"(Quinella bet")) and
+  not(contains(.,"(SYSTEM5)")) and
   not(contains(.,"(Scorpion")) and
   not(contains(.,"(Slots")) and
-  not(contains(.,"(Maygay")) and
-  not(contains(.,"(Barcrest")) and
-  not(contains(.,"(Concept")) and
-  not(contains(.,"(Global")) and
-  not(contains(.,"(Mdm")) and
-  not(contains(.,"(JPM")) and
-  not(contains(.,"(IMPACT")) and
-  not(contains(.,"(Gemini")) and
   not(contains(.,"(System 85")) and
-  not(contains(.,"(Electrocoin")) and
-  not(contains(.,"(Bellfruit")) and
-  not(contains(.,"(Quinella bet")) and
-  not(contains(.,"(Mahjong")) and
-  not(contains(.,"(Hanafu"))
+  not(contains(.,"Hanafu")) and
+  not(contains(.,"MPU3")) and 
+  not(contains(.,"MPU4")) and 
+  not(contains(.,"Mahjong")) and
+  not(contains(.,"Plus (PS")) and
+  not(contains(.,"gambling")) 
+  ]/parent::machine/manufacturer[
+  not(contains(.,"Aristocrat")) and
+  not(contains(.,"BFM/ELAM")) and
+  not(contains(.,"Coinmaster")) and
+  not(contains(.,"GMS")) and
+  not(contains(.,"Lazer-Tron")) and
+  not(contains(.,"Merit"))
   ]/parent::machine/@name'
 INITITLE="Coin Operated (Not Gambling/Pinball/Mahjong)"
 INIFILE=coinop-not-gambling-pinball.ini

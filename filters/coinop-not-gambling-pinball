@@ -4,7 +4,8 @@ XPATH='//mame/machine[
   ]/input[
   @coins > 0 and @players > 0
   ]/control[
-  not(@type = "gambling")
+  not(@type = "gambling") and
+  not(contains(@type,"hanafu"))
   ]/ancestor::machine/description[
   not(contains(.,"(Barcrest")) and
   not(contains(.,"(Bellfruit")) and
@@ -27,14 +28,13 @@ XPATH='//mame/machine[
   not(contains(.,"Mahjong")) and
   not(contains(.,"Plus (PS")) and
   not(contains(.,"gambling")) 
-  ]/parent::machine/manufacturer[
+  ]/ancestor::machine/manufacturer[
   not(contains(.,"Aristocrat")) and
   not(contains(.,"BFM/ELAM")) and
   not(contains(.,"Coinmaster")) and
   not(contains(.,"GMS")) and
   not(contains(.,"Lazer-Tron")) and
   not(contains(.,"Merit"))
-  ]/parent::machine/@name'
+  ]/ancestor::machine/@name'
 INITITLE="Coin Operated (Not Gambling/Pinball/Mahjong)"
 INIFILE=coinop-not-gambling-pinball.ini
-

@@ -1,0 +1,34 @@
+#!/bin/bash
+
+set -u
+
+IFS=";"
+
+source config
+MAMEFILTER=${1:-$MAMEFILTER}
+
+[ ! -f "${MAMEFILTER}" ] && echo "ERROR: ${MAMEFILTER} not found, exiting" && exit 1
+
+# get the version from MAME
+function version {
+   export MAMEVER=$(${MAMEPATH}/mame -version | awk '{print $1}')
+}
+
+# run the filter
+function run {
+  local XPATH="${1}"
+  local INIFILE="${2}"
+  local INITITLE="${3}"
+  [ -z "${MAMEVER}" ] && version
+  local OUTDIR="${MAMEFOLDER}/${MAMEVER}"
+  [ ! -d "${OUTDIR}" ] && mkdir -p "${OUTDIR}"
+  local OUTFILE="${OUTDIR}/${INIFILE}"
+  cat "${MAMECACHE}/mame_${MAMEVER}.xml" | xmllint --xpath $XPATH -
+}
+
+# run the other bits
+version
+
+# source and run the filter
+source ${MAMEFILTER}
+run "${XPATH}" "${INIFILE}" "${INITITLE}"
